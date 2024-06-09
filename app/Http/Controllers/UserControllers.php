@@ -12,8 +12,12 @@ class UserControllers extends Controller
         return "Bu users name list yani ro'yhati";
     }
 
-    public function show($user)
+    public function show(Request $request, $user)
     {
+        dd($request->ip());
+        
+
+
         $user += 1000;
         // return "This is name list yani userslar = " . $user;
         return view('user.show')->with([
@@ -25,5 +29,13 @@ class UserControllers extends Controller
     public function createUser()
     {
         return view('user.crete');
+    }
+
+
+    public function store(Request $request){
+        dd($request->input('name'));
+    }
+    public function edit($user_id){
+        return "<h1>". $user_id . " ni o'zgartirish.</h1>";
     }
 }
