@@ -9,7 +9,10 @@ class UserControllers extends Controller
     //User names list
     public function index()
     {
-        return "Bu users name list yani ro'yhati";
+        return response()->json([
+            'name' => 'Jalol',
+            'state' => "Ca",
+        ]);
     }
 
     public function show(Request $request, $user)
@@ -34,6 +37,7 @@ class UserControllers extends Controller
 
     public function store(Request $request){
         dd($request->input('name'));
+        // dd($request->all());
     }
     public function edit($user_id){
         return "<h1>". $user_id . " ni o'zgartirish.</h1>";
